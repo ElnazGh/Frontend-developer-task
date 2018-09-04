@@ -1,0 +1,45 @@
+<div class="form-page complete-reg">
+	<!-- header -->
+    <div ng-controller="formController">
+        <div ng-include src="header.url"></div>
+        <script type="text/ng-template" id="header.view.html"></script>
+    </div> <!-- End - header -->
+
+	<section class="main-sec">
+		<div class="small-container oneLine-field">
+			<div class="form-group group-ctrl" >
+                <label for="staffPIN">Enter Staff PIN</label>
+                <input digits-only type="text"  
+                		name="staffPIN" 
+                		id="staffPIN" 
+                		placeholder="staffPIN" 
+                		class="form-control text-field" 
+                		ng-model="vm.staffPIN" required />
+            </div>
+            <div class="form-group group-ctrl" >
+                <label for="cardNo">Scan new Loyalty Card</label>
+                <input digits-only type="text" 
+                		name="cardNo" 
+                		id="cardNo" 
+                		placeholder="cardNo" 
+                		class="form-control text-field" 
+                		ng-model="vm.cardNo" required />
+            </div>
+		</div>
+		<div class="content-container">
+			<h2>Provide Member New Card, and discard of Legacy card</h2>
+		</div>
+
+        <div class="form-group group-ctrl" >
+            <a href="#!/success" 
+                class="form-main-btn" >Save</a>
+        </div>
+
+	</section>
+    
+    <!-- footer -->
+    <div ng-controller="formController">
+        <div ng-include src="footer.url"></div>
+        <script type="text/ng-template" id="footer.view.html"></script>
+    </div> <!-- End - footer -->
+</div>

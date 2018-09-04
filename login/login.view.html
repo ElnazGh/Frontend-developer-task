@@ -1,0 +1,82 @@
+<div class="login-container">
+    <div class="login-sec">
+        
+        <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+        <div class="login-section-wrapper" >
+            
+            <!-- End Register -->
+            <div class="user-login" >
+               <!--  <h2>Login</h2> -->
+               <div class="login-header">
+                   <h1>Users/Admin Portal</h1>
+                </div>
+                <!-- login -->
+                <form name="form" ng-submit="vm.login()" role="form" class="form_login">
+                    <div 
+                        class="form-group group-ctrl" 
+                        ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                        <label for="username">Username</label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="username" 
+                            placeholder="ellie.gh" 
+                            class="form-control text-field" 
+                            ng-model="vm.username" 
+                            required />
+                        <span 
+                            ng-show="form.username.$dirty && form.username.$error.required" 
+                            class="help-block">Username is required
+                        </span>
+                    </div>
+
+                    <div 
+                        class="form-group group-ctrl password" 
+                        ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                        <label for="password">Password</label>
+                        <input 
+                            type="{{vm.inputType}}" 
+                            name="password" 
+                            id="password" 
+                            class="form-control text-field" 
+                            ng-model="vm.password" 
+                            required />
+
+                        <input 
+                            type="checkbox" 
+                            id="checkbox" 
+                            ng-model="passwordCheckbox" 
+                            ng-click="vm.hideShowPassword()" 
+                            class="hideShowPassword" />
+                        <i ng-if="!passwordCheckbox" class="fa fa-eye" aria-hidden="true"></i>
+                        <i ng-if="passwordCheckbox" class="fa fa-eye-slash" aria-hidden="true"></i>
+                        <span 
+                            ng-show="form.password.$dirty && form.password.$error.required" 
+                            class="help-block">
+                            Password is required
+                        </span>
+                    </div>
+                    <div class="group-ctrl form-actions login-indicator">
+                        <button 
+                            type="submit" 
+                            ng-disabled="form.$invalid || vm.dataLoading" 
+                            class="default-btn default-btn-primary" >
+                                Sign In
+                            <i class="fa fa-spinner fa-pulse" ng-if="vm.dataLoading"></i>
+                        </button>
+                       <div class="register-section" >
+                            <div class="group-ctrl form-actions">
+                                <a 
+                                    class="default-btn default-btn-secondary has-icon" 
+                                    href="#!/register">
+                                    Create account<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End login -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,197 @@
+.main-page-holder {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    background-color: #f3f5f8;
+    color: #2f353e;
+    z-index: 0;
+}
+
+.section-container {
+    display: block;
+    width: calc(100% - 40px);
+    height: auto;
+    margin: 0 auto;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Mega select */
+
+.group-ctrl {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 3px 0;
+    overflow: hidden;
+
+    input[type="text"], input[type="search"] {
+        display: inline-block;
+        float: left;
+        min-width: 320px;
+        height: 40px;
+        line-height: 20px;
+        font-size: 15px;
+        padding: .6em .9em;
+        border: 1px solid #ddd;
+        vertical-align: middle;
+        box-sizing: border-box;
+        border-radius: 2px;
+        box-shadow: inset 0 1px 3px #ddd;
+        outline: 0;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.home .group-ctrl label {
+    display: inline-block;
+    float: left;
+    width: 15%;
+    min-width: 134px;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    padding: 9px 0;
+    margin-bottom: 0px;
+    color: #30363e;
+}
+
+.storedd-container {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 45px);
+    height: auto;
+    overflow: hidden;
+}
+
+.group-ctrl .storedd {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: calc((100% - 90px)/2);
+
+    &:nth-child(2) {
+        position: relative;
+        margin-left: 68px;
+        margin-top: 0;
+    }
+
+    .storedd-icon {
+        position: absolute;
+        left: -45px;
+        z-index: 10;
+        top: 120px;
+        color: #999;
+        font-size: 17px;
+    }
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+
+.group-ctrl .storedd button {
+    position: relative;
+    display: inline-block;
+    border-radius: 2px 2px 0 0;
+    border: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    min-width: auto;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    padding: 12px .9em;
+    text-align: center;
+    background-color: $primary-lighter-color;
+    color: #fff;
+}
+
+/* Mega-select */
+.mega-select-wrapper {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0 10px 10px 10px;
+    border-radius: 0 0 3px 3px;
+    background-color: #f3f5f8;
+    max-height: 213px;
+    overflow-y: scroll;
+
+    .mega-select-filter-input {
+        position: absolute;
+        width: calc(100% - 35px);
+        z-index: 50;
+        border-bottom: 9px solid #f3f5f8;
+        border-top: 9px solid #f3f5f8;
+
+        input[type=search] {
+            width: 100%;
+            min-width: 100%;
+            height: 40px;
+            margin: 0; 
+        }
+
+        input {
+            position: relative;
+            max-width: 558px;
+            width: 100%;
+        }
+    }
+    
+    .mega-select-options {
+        margin-top: 60px;
+    }
+
+    .mega-select-option {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-top: 3px;
+
+        label {
+            width: 100%;
+            position: relative;
+            font-size: 15px;
+            background-color: #fff;
+            padding: 10px 12px;
+
+            &.item-disabled {
+                color: #ccc;
+                cursor: not-allowed;
+            }
+
+            i.mega-select-icon {
+                position: absolute;
+                right: 10px;
+                top: 13px;
+                color: #999;
+            }
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+    }    
+}
+

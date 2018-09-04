@@ -1,0 +1,148 @@
+<div class="home-page">
+	<!-- header -->
+	<div ng-controller="homeController">
+	  	<div ng-include src="header.url"></div>
+	  	<script type="text/ng-template" id="header.view.html"></script>
+	</div> <!-- End - header -->
+
+	<section class="main-sec">
+		<h2>Users and their details</h2>
+		<p class="m-b-0 m-t-0">Please click on each row to complete user details.</p>
+
+		<!-- table -->
+		<div class="table-container" st-pipe="vm.callServer" st-table="vm.displayed">
+			<div class="table-responsive">
+				<table 
+					st-table="displayedCollection" 
+					st-safe-src="vm.allUsers" 
+					class="table table-striped">
+					<thead>
+					<tr>
+						<th st-sort="firstName">first name</th>
+						<th st-sort="lastName">last name</th>
+						<th>Remove</th>
+					</tr>
+					<tr>
+						<th colspan="5">
+							<div class="search-container">
+								<input st-search="" class="form-control" placeholder="global search ..." type="text"/>
+							</div>
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="row in displayedCollection"
+							ng-click="rowClick('/member-details', row, row.id);" >
+							<td>{{row.firstName}}</td>
+							<td>{{row.lastName}}</td>
+							<td>
+								<button type="button" ng-click="removeItem(row.id)" class="btn btn-sm btn-danger">
+									<i class="glyphicon glyphicon-remove-circle">
+									</i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td class="text-center" 
+								st-pagination="" 
+								st-items-by-page="2" 
+								colspan="8" >
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<!-- End - table -->
+
+		<!-- Accordion -->
+        <section class="ac-container">
+        	<p>List of groups and their users</p>
+        	<h2>Groups and Users</h2>
+
+        	<div class="search-container">
+                <input 
+                	id="groupNameSearch" 
+                	name="groupNameSearch" 
+                	type="search" 
+                	placeholder="Filter" 
+                	ng-model="groupNameSearch" 
+                	class="form-control search" />
+
+		    		<input 
+		    			type="text" 
+		    			ng-model="groupName" 
+		    			class="form-control addInput">
+	                <button  
+	                	type="submit" 
+	            		class="default-btn" ng-click="addNamedItem()" >
+	                	<i class="fa fa-plus" aria-hidden="true"></i>
+	                	Add New Group
+	                </button>
+            </div>
+
+            <div ng-repeat="storeOption in storeOptions | filter:groupNameSearch track by $index">
+                <input id="productBtn{{$index}}" name="productBtn1" type="checkbox" />
+                <label for="productBtn{{$index}}" ng-model="groupNameSearch">{{storeOption.name}}</label>
+                <article class="ac-small">
+                   <!-- table -->
+					<div class="table-container" st-pipe="vm.callServer" st-table="vm.displayed">
+						<div class="table-responsive">
+							<table 
+								st-table="displayedCollection" 
+								st-safe-src="vm.allUsers" 
+								class="table table-striped">
+								<thead>
+								<tr>
+									<th st-sort="firstName">first name</th>
+									<th st-sort="lastName">last name</th>
+									<th>Remove</th>
+								</tr>
+								<tr>
+									<th colspan="5">
+										<div class="search-container">
+											<input st-search="" class="form-control" placeholder="global search ..." type="text"/>
+										</div>
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="row in displayedCollection"
+										ng-click="rowClick('/member-details', row, row.id);" >
+										<td>{{row.firstName}}</td>
+										<td>{{row.lastName}}</td>
+										<td>
+											<button type="button" ng-click="removeItem(row.id)" class="btn btn-sm btn-danger">
+												<i class="glyphicon glyphicon-remove-circle">
+												</i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td class="text-center" 
+											st-pagination="" 
+											st-items-by-page="2" 
+											colspan="8" >
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<!-- End - table -->
+                </article>
+            </div>
+        </section>
+        <!-- End - Accordion -->
+	</section>
+
+	<!-- footer -->
+	<div ng-controller="homeController">
+	  	<div ng-include src="footer.url"></div>
+	  	<script type="text/ng-template" id="footer.view.html"></script>
+	</div> <!-- End - footer -->
+</div>

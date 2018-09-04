@@ -1,0 +1,19 @@
+<header>
+    <div class="header-container">
+    	<!-- Back/Cancel -->
+    	<a href="#!/ " class="default-btn default-btn-secondary cancel-link" ng-if="formPage" >
+			<p>{{backLinkTopText}}</p>
+			<span>{{backLinkBottomText}}</span>
+		</a>
+		<!-- Heading -->
+        <h1 class="heading">{{headerText}} </h1><h1 class="heading off-mobile"> {{mobileHeaderText}}</h1>
+        <!-- Add New -->
+        <a 
+            href="#!/register" 
+            class="default-btn default-btn-secondary icon header-btn" 
+            ng-class="{'disabled': formPage}"> 
+        	<i class="fa fa-plus" aria-hidden="true"></i>
+        	<span>Add New User</span> 
+        </a>
+    </div>
+</header>
